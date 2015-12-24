@@ -1,5 +1,7 @@
 // @AngularClass
 var path = require('path');
+var webpack = require('webpack');
+var DefinePlugin = webpack.DefinePlugin;
 
 module.exports = function(config) {
   var _config = {
@@ -73,6 +75,11 @@ module.exports = function(config) {
           }
         ]
       },
+      plugins: [
+        new DefinePlugin({
+          '__API_KEY__': JSON.stringify(process.env.HEARTHSTONE_API_KEY)
+        })
+      ],
       stats: { colors: true, reasons: true },
       debug: false,
       noParse: [
@@ -120,7 +127,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode

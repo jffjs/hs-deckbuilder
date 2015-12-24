@@ -7,6 +7,7 @@ var path = require('path');
 var webpack = require('webpack');
 // Webpack Plugins
 var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
+var DefinePlugin   = webpack.DefinePlugin;
 
 /*
  * Config
@@ -65,6 +66,9 @@ module.exports = {
   },
 
   plugins: [
+    new DefinePlugin({
+      '__API_KEY__': JSON.stringify(process.env.HEARTHSTONE_API_KEY)
+    }),
     new CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.js', minChunks: Infinity }),
     new CommonsChunkPlugin({ name: 'common', filename: 'common.js', minChunks: 2, chunks: ['app', 'vendor'] })
    // include uglify in production
