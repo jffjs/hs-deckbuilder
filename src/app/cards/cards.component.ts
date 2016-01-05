@@ -4,17 +4,19 @@ import * as _ from 'lodash';
 import {Card} from './cards.model';
 import {CardsService} from './cards.service';
 import {PaginatePipe} from '../pipes/paginate.ts';
-import {CardThumbComponent} from './card/card-thumb.component';
+import {CardThumbComponent} from './card/thumb/card-thumb.component';
+import {CardModalComponent} from './card/modal/card-modal.component';
 
 @Component({
   selector: 'hs-cards',
-  directives: [CardThumbComponent, CORE_DIRECTIVES],
+  directives: [CardThumbComponent, CardModalComponent, CORE_DIRECTIVES],
   pipes: [PaginatePipe],
   providers: [CardsService],
   template: require('./cards.component.html')
 })
 export class CardsComponent {
   cards: Card[];
+  selectedCard: Card;
   currentPage: number;
 
   constructor(private cardsService: CardsService) {

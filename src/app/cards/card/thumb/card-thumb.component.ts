@@ -1,5 +1,5 @@
 import {Component, Input} from 'angular2/core';
-import {Card} from '../cards.model';
+import {Card} from '../../cards.model';
 
 @Component({
   selector: 'hs-card-thumb',

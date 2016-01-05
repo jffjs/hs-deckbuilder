@@ -1,10 +1,10 @@
 div {
   display: inline-block;
 }
-img {
+img.thumb {
   width: 160px;
   transition: all .1s ease-in-out;
 }
-img:hover {
+img.thumb:hover {
   transform: scale(1.015);
 }

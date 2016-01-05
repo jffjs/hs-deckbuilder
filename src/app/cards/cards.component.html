@@ -1,5 +1,6 @@
 <a href="javascript:void(0)" (click)="prevPage()">Prev</a>
 <a href="javascript:void(0)" (click)="nextPage()">Next</a>
 <div>
-  <hs-card-thumb *ngFor="#card of cards | paginate:currentPage" [card]="card"></hs-card-thumb>
+  <hs-card-thumb *ngFor="#card of cards | paginate:currentPage" [card]="card" (click)="selectedCard = card"></hs-card-thumb>
 </div>
+<hs-card-modal [card]="selectedCard"></hs-card-modal>
